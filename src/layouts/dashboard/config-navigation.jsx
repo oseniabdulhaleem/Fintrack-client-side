@@ -9,12 +9,12 @@ const icon = (name) => (
 const navConfig = [
   {
     title: 'dashboard',
-    path: '/',
+    path: '/dashboard',
     icon: icon('ic_analytics'),
   },
   {
-    title: 'user',
-    path: '/user',
+    title: 'manage balance',
+    path: '/manage_balance',
     icon: icon('ic_user'),
   },
   {
@@ -33,7 +33,7 @@ const navConfig = [
     icon: icon('ic_lock'),
   },
   {
-    title: 'Not found',
+    title: 'found',
     path: '/404',
     icon: icon('ic_disabled'),
   },

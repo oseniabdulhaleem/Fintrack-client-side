@@ -111,7 +111,7 @@ export function palette() {
       disabled: grey[500],
     },
     background: {
-      paper: '#FFFFFF',
+      paper: '#f8f3ed',
       default: grey[100],
       neutral: grey[200],
     },
