@@ -1,7 +1,7 @@
-import { useEffect, useState } from "react";
-import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
-import LoadingModal from "./LoadingModal";
+import { useEffect, useState } from 'react';
+import { useForm } from 'react-hook-form';
+import { useNavigate } from 'react-router-dom';
+import LoadingModal from './LoadingModal';
 
 export function SignUp() {
   const [checkPass, setCheckPass] = useState(false);
@@ -10,8 +10,6 @@ export function SignUp() {
     register,
     handleSubmit,
     formState: { errors },
-    getValues,
-    reset,
   } = useForm();
   const navigate = useNavigate();
 
@@ -34,26 +32,24 @@ export function SignUp() {
       };
       // console.log(JSON.stringify(userData));
 
-      fetch("https://financetrack-app.onrender.com/api/v1/signup", {
-        method: "POST",
+      fetch('https://financetrack-app.onrender.com/api/v1/signup', {
+        method: 'POST',
         headers: {
-          "Content-Type": "application/json",
+          'Content-Type': 'application/json',
           // Add any other headers your server requires
         },
         body: JSON.stringify(userData),
       })
         .then((response) => response.json())
-        .then((data) => {
-          console.log("Success:", data.message);
-          alert(
-            "Account successfully created. \n you will redirected to the login page"
-          );
+        .then((server_response) => {
+          console.log('Success:', server_response.message);
+          alert('Account successfully created. \n you will redirected to the login page');
           // reset();
-          navigate("/login");
+          navigate('/login');
           // Handle the success response from the server
         })
         .catch((error) => {
-          console.error("Error:", error);
+          console.error('Error:', error);
           // Handle errors
         })
         .finally(() => {
@@ -63,54 +59,54 @@ export function SignUp() {
   };
 
   return (
-    <div className={`homepage ${isLoading ? "loading-overlay" : ""}`}>
+    <div className={`homepage ${isLoading ? 'loading-overlay' : ''}`}>
       <section className="p-4 flex flex-col justify-center min-h-screen max-w-md mx-auto">
-        <h1 className="text-7xl font-semibold text-center text-blue-900 mb-10">
-          FinTrack
-        </h1>
+        <h1 className="text-7xl font-semibold text-center text-blue-900 mb-10">FinTrack</h1>
         <form onSubmit={handleSubmit(onSubmit)}>
           <div>
-            <label>Firstname</label>
-            <input
-              className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+            <label htmlFor="firstname">
+              Firstname
+              <input
+                className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
           focus:outline-none
           focus:border-sky-500
           focus:ring-1
           focus:ring-sky-500
           focus:invalid:border-red-500 focus:invalid:ring-red-500"
-              {...register("FirstName", {
-                required: "This is required",
-                validate: {
-                  minLength: (v) =>
-                    v.length > 2 || "minimum length of 3 required",
-                  matchPattern: (v) =>
-                    /^[a-zA-Z_]+$/.test(v) || "Invalid firstname",
-                },
-              })}
-              placeholder="firstname"
-            />
+                {...register('FirstName', {
+                  required: 'This is required',
+                  validate: {
+                    minLength: (v) => v.length > 2 || 'minimum length of 3 required',
+                    matchPattern: (v) => /^[a-zA-Z_]+$/.test(v) || 'Invalid firstname',
+                  },
+                })}
+                placeholder="firstname"
+                id="firstname"
+              />
+            </label>
             <p className="text-red-500">{errors.firstname?.message}</p>
           </div>
           <div>
-            <label>Lastname</label>
-            <input
-              className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+            <label htmlFor="lastname">
+              Lastname
+              <input
+                className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
           focus:outline-none
           focus:border-sky-500
           focus:ring-1
           focus:ring-sky-500
           focus:invalid:border-red-500 focus:invalid:ring-red-500"
-              {...register("LastName", {
-                required: "This is required",
-                validate: {
-                  minLength: (v) =>
-                    v.length > 2 || "minimum length of 3 required",
-                  matchPattern: (v) =>
-                    /^[a-zA-Z_]+$/.test(v) || "Invalid lastname",
-                },
-              })}
-              placeholder="lastname"
-            />
+                {...register('LastName', {
+                  required: 'This is required',
+                  validate: {
+                    minLength: (v) => v.length > 2 || 'minimum length of 3 required',
+                    matchPattern: (v) => /^[a-zA-Z_]+$/.test(v) || 'Invalid lastname',
+                  },
+                })}
+                placeholder="lastname"
+                id="lastname"
+              />
+            </label>
             <p className="text-red-500">{errors.lastname?.message}</p>
           </div>
           {/* <div>
@@ -135,69 +131,77 @@ export function SignUp() {
             <p className="text-red-500">{errors.username?.message}</p>
           </div> */}
           <div>
-            <label>E-mail</label>
-            <input
-              className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+            <label htmlFor="email">
+              E-mail
+              <input
+                className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
           focus:outline-none
           focus:border-sky-500
           focus:ring-1
           focus:ring-sky-500
           focus:invalid:border-red-500 focus:invalid:ring-red-500 bg-white "
-              {...register("Email", {
-                required: true,
-                validate: {
-                  matchPattern: (v) =>
-                    /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(
-                      v
-                    ) ||
-                    "must be a valid email address and should be in lowercase",
-                },
-              })}
-              type="email"
-              placeholder="example@gmail.com"
-            ></input>
+                {...register('Email', {
+                  required: true,
+                  validate: {
+                    matchPattern: (v) =>
+                      /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/.test(v) ||
+                      'must be a valid email address and should be in lowercase',
+                  },
+                })}
+                type="email"
+                placeholder="example@gmail.com"
+                id="email"
+              />
+            </label>
             {errors.email?.message && <p>{errors.email?.message}</p>}
           </div>
           <div>
-            <label>Password</label>
-            <input
-              className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+            <label htmlFor="Password">
+              Password
+              <input
+                className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
           focus:outline-none
           focus:border-sky-500
           focus:ring-1
           focus:ring-sky-500
           focus:invalid:border-red-500 focus:invalid:ring-red-500 bg-white"
-              {...register("Password", {
-                required: true,
-                minLength: {
-                  value: 5,
-                  message: "Minimum of 5 characters",
-                },
-              })}
-              type="password"
-              placeholder="Password"
-            />
+                {...register('Password', {
+                  required: true,
+                  minLength: {
+                    value: 5,
+                    message: 'Minimum of 5 characters',
+                  },
+                })}
+                type="password"
+                placeholder="Password"
+                id="Password"
+              />
+            </label>
           </div>
           <p className="text-red-500">{errors.password?.message}</p>
           <div>
-            <label> Confirm Password</label>
-            <input
-              className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
+            <label htmlFor="cPassword">
+              {' '}
+              Confirm Password
+              <input
+                className="mb-3 mt-1 block w-full px-2 py-1.5 border border-gray-300 rounded-md text-sm shadow-sm placeholder-gray-400
           focus:outline-none
           focus:border-sky-500
           focus:ring-1
           focus:ring-sky-500
           focus:invalid:border-red-500 focus:invalid:ring-red-500"
-              {...register("cPassword", {
-                required: true,
-                minLength: {
-                  value: 5,
-                  message: "Minimum of 5 characters",
-                },
-              })}
-              type="password"
-              placeholder="Password"
-            />
+                {...register('cPassword', {
+                  required: true,
+                  minLength: {
+                    value: 5,
+                    message: 'Minimum of 5 characters',
+                  },
+                })}
+                type="password"
+                placeholder="Password"
+                id="cPassword"
+              />
+            </label>
           </div>
           <p className="text-red-500">{errors.cPassword?.message}</p>
           {checkPass && <p className="text-red-500">Passwords do not match</p>}
@@ -211,13 +215,10 @@ export function SignUp() {
         </form>
         {isLoading && <LoadingModal />}
         <p className="mt-2">
-          Have an account?{" "}
-          <a
-            className="text-blue-700 underline cursor-pointer"
-            onClick={() => navigate("/login")}
-          >
-            Login
-          </a>
+          Have an account?{' '}
+          <button type="button" onClick={() => navigate('/login')}>
+            <a className="text-blue-700 underline cursor-pointer">Login</a>
+          </button>
         </p>
       </section>
     </div>

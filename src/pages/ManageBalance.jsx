@@ -6,8 +6,8 @@ import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import AppWidgetSummary from '../sections/overview/app-widget-summary';
-import Card from '@mui/material/Card';
+// import AppWidgetSummary from '../sections/overview/app-widget-summary';
+// import Card from '@mui/material/Card';
 import Input from '@mui/material/Input';
 
 const style = {
@@ -60,10 +60,12 @@ export default function ManageBalance() {
                           <Input type="number" fullWidth />
                         </p>
                         <p className="mt-10 flex flex-row justify-end">
-                          <button className="p-4" onClick={handleClose}>
+                          <button className="p-4" onClick={handleClose} type="button">
                             Cancel
                           </button>
-                          <button className="bg-blue-500 p-3 rounded-lg">Update</button>
+                          <button className="bg-blue-500 p-3 rounded-lg" type="button">
+                            Update
+                          </button>
                         </p>
                       </Typography>
                     </Box>
