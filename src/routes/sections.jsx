@@ -1,9 +1,9 @@
 import { lazy, Suspense } from 'react';
 import { Outlet, Navigate, useRoutes } from 'react-router-dom';
 
-import DashboardLayout from 'src/layouts/dashboard';
 import { SignUp } from 'src/pages/SignUp';
 import { LoginPage } from 'src/pages/LoginPage';
+import DashboardLayout from 'src/layouts/dashboard';
 // export const SignUp = lazy(() => import('src/pages/SignUp'));
 export const ManageBalance = lazy(() => import('src/pages/ManageBalance'));
 export const HomePage = lazy(() => import('src/pages/HomePage'));

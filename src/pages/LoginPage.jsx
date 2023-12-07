@@ -1,6 +1,7 @@
 import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
+
 import LoadingModal from './LoadingModal';
 
 export function LoginPage() {

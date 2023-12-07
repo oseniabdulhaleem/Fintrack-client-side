@@ -1,36 +1,43 @@
 import React from 'react';
-import { ChevronDownIcon } from '@radix-ui/react-icons';
-import * as Accordion from '@radix-ui/react-accordion';
 import classNames from 'classnames';
-import dashbod from '/assets/dashbod.jpg';
-import AnimateOnScroll from './AnimateOnScroll';
-import { VerticalOnScroll } from './AnimateOnScroll';
 import { useNavigate } from 'react-router-dom';
+import * as Accordion from '@radix-ui/react-accordion';
+import { ChevronDownIcon } from '@radix-ui/react-icons';
+
+import dashbod from '../../public/assets/dashbod.jpg';
+import { AnimateOnScroll, VerticalOnScroll } from './AnimateOnScroll';
+
 // import { Link } from "react-router-dom";
 // import peace from "../assets/peace.jpg";
 
-const AccordionTrigger = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
-  <Accordion.Header className="AccordionHeader">
-    <Accordion.Trigger
-      className={classNames('AccordionTrigger', className)}
+const AccordionTrigger = React.forwardRef((prop, forwardedRef) => {
+  const { children, className, ...props } = prop;
+  return (
+    <Accordion.Header className="AccordionHeader">
+      <Accordion.Trigger
+        className={classNames('AccordionTrigger', className)}
+        {...props}
+        ref={forwardedRef}
+      >
+        {children}
+        <ChevronDownIcon className="AccordionChevron" aria-hidden />
+      </Accordion.Trigger>
+    </Accordion.Header>
+  );
+});
+
+const AccordionContent = React.forwardRef((prop, forwardedRef) => {
+  const { children, className, ...props } = prop;
+  return (
+    <Accordion.Content
+      className={classNames('AccordionContent', className)}
       {...props}
       ref={forwardedRef}
     >
-      {children}
-      <ChevronDownIcon className="AccordionChevron" aria-hidden />
-    </Accordion.Trigger>
-  </Accordion.Header>
-));
-
-const AccordionContent = React.forwardRef(({ children, className, ...props }, forwardedRef) => (
-  <Accordion.Content
-    className={classNames('AccordionContent', className)}
-    {...props}
-    ref={forwardedRef}
-  >
-    <div className="AccordionContentText">{children}</div>
-  </Accordion.Content>
-));
+      <div className="AccordionContentText">{children}</div>
+    </Accordion.Content>
+  );
+});
 
 export default function HomePage() {
   // console.log("in the homepage");
@@ -41,17 +48,16 @@ export default function HomePage() {
       <div className="flex flex-row  gap-2 fixed top-0 left-0 z-50   fix-element lg:top-0 lg:left-1/2  lg:-translate-x-1/2 z-3 backdrop-blur-md h-50 w-full lg:w-full px-20 items-center justify-between transition-[background,color] duration-500 ease-expo-out  text-white">
         <p className="text-2xl ">FinTrack</p>
         <div className="flex flex-row justify-end gap-2 items-center py-3">
-          <div
-            className=" text-white px-3 py-1 rounded-3xl hover:scale-105   hover:bg-black cursor-pointer"
-            onClick={() => navigate('/login')}
-          >
-            Login
+          <div className=" text-white px-3 py-1 rounded-3xl hover:scale-105   hover:bg-black cursor-pointer">
+            <button onClick={() => navigate('/login')} type="button">
+              Login
+            </button>
           </div>
-          <div
-            className="hover:scale-105 text-white px-3 py-1  rounded-3xl hover:bg-black cursor-pointer"
-            onClick={() => navigate('/signup')}
-          >
-            Signup
+          <div className="hover:scale-105 text-white px-3 py-1  rounded-3xl hover:bg-black cursor-pointer">
+            <button onClick={() => navigate('/signup')} type="button">
+              {' '}
+              Signup
+            </button>
           </div>
         </div>
       </div>
@@ -69,27 +75,28 @@ export default function HomePage() {
               </p>
               <br />
             </AnimateOnScroll>
-            <div className="flex flex-row " onClick={() => navigate('/signup')}>
-              <div className="gs-button ml-5 mt-5 text-sm flex flex-row bg-black hover:bg-white hover:text-black text-white rounded-3xl pr-5 cursor-pointer  hover:border-2 border-black hover:fill-black fill-white">
-                <span className="rounded-2xl p-4 pt-4 text-lg">Get Started </span>
-                <span className=" pt-4">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    height="16"
-                    viewBox="0 -960 960 960"
-                    width="24"
-                    className="inline"
-                  >
-                    <path d="m600-200-57-56 184-184H80v-80h647L544-704l56-56 280 280-280 280Z" />
-                  </svg>
-                </span>
-              </div>
-              <div></div>
+            <div className="flex flex-row ">
+              <button type="button" onClick={() => navigate('/signup')}>
+                <div className="gs-button ml-5 mt-5 text-sm flex flex-row bg-black hover:bg-white hover:text-black text-white rounded-3xl pr-5 cursor-pointer  hover:border-2 border-black hover:fill-black fill-white">
+                  <span className="rounded-2xl p-4 pt-4 text-lg">Get Started </span>
+                  <span className=" pt-4">
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="16"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                      className="inline"
+                    >
+                      <path d="m600-200-57-56 184-184H80v-80h647L544-704l56-56 280 280-280 280Z" />
+                    </svg>
+                  </span>
+                </div>
+              </button>
             </div>
           </div>
           {/* This will hold the image */}
           <div className="basis-1/2 rounded-2xl">
-            <img src={dashbod} className="rounded-lg" />
+            <img src={dashbod} className="rounded-lg" alt="dashboard" />
           </div>
         </div>
       </div>
@@ -207,16 +214,4 @@ export default function HomePage() {
       </div> */}
     </div>
   );
-}
-
-{
-  /* <h1 className="text-4xl">Easily Track your Finance</h1>
-<div className="flex flex-row gap-4">
-  <p className="bg-blue-600 text-white p-2 rounded-2xl">
-    <Link to="/signup">Signup</Link>
-  </p>
-  <p className="bg-blue-600 text-white p-2 rounded-2xl">
-    <Link to="/login">Login</Link>
-  </p>
-</div> */
 }
