@@ -34,8 +34,8 @@ const useElementOnScreen = (options) => {
 export const AnimateOnScroll = (props) => {
   const [containerRef, isVisible] = useElementOnScreen({
     threshold: 0.3,
-    // reappear: reappear,
   });
+  const { ...prop } = props;
 
   return (
     <div
@@ -44,7 +44,7 @@ export const AnimateOnScroll = (props) => {
         isVisible ? 'opacity-100  translate-x-0' : 'opacity-20 -translate-x-20'
       }  motion-reduce:transition-none motion-reduce:hover:transform-none`}
     >
-      {props}
+      {prop.children}
     </div>
   );
 };
@@ -56,7 +56,7 @@ export const VerticalOnScroll = (props) => {
   });
   console.log(props);
   const { ...prop } = props;
-  console.log(prop.children);
+  // console.log(prop.children);
 
   return (
     <div

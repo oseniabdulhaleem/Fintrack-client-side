@@ -8,10 +8,10 @@ import DashboardLayout from 'src/layouts/dashboard';
 export const ManageBalance = lazy(() => import('src/pages/ManageBalance'));
 export const HomePage = lazy(() => import('src/pages/HomePage'));
 export const IndexPage = lazy(() => import('src/pages/app'));
-export const BlogPage = lazy(() => import('src/pages/blog'));
+// export const BlogPage = lazy(() => import('src/pages/blog'));
 export const UserPage = lazy(() => import('src/pages/user'));
 // export const LoginPage = lazy(() => import('src/pages/LoginPage'));
-export const ProductsPage = lazy(() => import('src/pages/products'));
+// export const ProductsPage = lazy(() => import('src/pages/products'));
 export const Page404 = lazy(() => import('src/pages/page-not-found'));
 
 // ----------------------------------------------------------------------
@@ -30,8 +30,8 @@ export default function Router() {
         // { element: <HomePage />, index: true },
         { path: 'dashboard', element: <IndexPage /> },
         { path: 'user', element: <UserPage /> },
-        { path: 'products', element: <ProductsPage /> },
-        { path: 'blog', element: <BlogPage /> },
+        // { path: 'products', element: <ProductsPage /> },
+        // { path: 'blog', element: <BlogPage /> },
         { path: 'manage_balance', element: <ManageBalance /> },
       ],
     },

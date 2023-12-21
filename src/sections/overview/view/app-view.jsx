@@ -1,4 +1,6 @@
+// import { Icon } from '@iconify/react';
 import { faker } from '@faker-js/faker';
+import { useNavigate } from 'react-router-dom';
 
 import Container from '@mui/material/Container';
 import Grid from '@mui/material/Unstable_Grid2';
@@ -19,6 +21,7 @@ import AppConversionRates from '../app-conversion-rates';
 // ----------------------------------------------------------------------
 
 export default function AppView() {
+  const navigate = useNavigate();
   return (
     <Container maxWidth="xl">
       <Typography variant="h4" sx={{ mb: 5 }}>
@@ -26,41 +29,117 @@ export default function AppView() {
       </Typography>
 
       <Grid container spacing={3}>
-        <Grid xs={12} sm={6} md={4}>
+        <Grid
+          xs={12}
+          sm={6}
+          md={4}
+          onClick={() => navigate('/manage_balance')}
+          sx={{
+            cursor: 'pointer',
+            transition: 'height 0.5s ease', // Apply transition to the height property
+            '&:hover': {
+              padding: '0.4em', // Increased padding on hover
+            },
+          }}
+        >
           <AppWidgetSummary
             title="Balance"
             total={714000}
             color="success"
             icon={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                height="32px"
-                viewBox="0 0 24 24"
-                width="32px"
-                fill="#1877F2"
-              >
-                <path d="M0 0h24v24H0z" fill="none" />
-                <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z" />
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  d="M42.451 29.914v5.893a3.946 3.946 0 0 1-3.946 3.947H8.446A3.946 3.946 0 0 1 4.5 35.807V12.193a3.946 3.946 0 0 1 3.947-3.947h30.058a3.946 3.946 0 0 1 3.946 3.947v6.098"
+                />
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  d="M42.294 29.925H31.925a5.822 5.822 0 0 1-5.822-5.822h0a5.822 5.822 0 0 1 5.822-5.823h10.37c.665 0 1.205.54 1.205 1.206v9.234c0 .665-.54 1.205-1.206 1.205"
+                />
+                <circle cx="32.458" cy="24.171" r="2.705" fill="none" stroke="currentColor" />
+              </svg>
+            }
+            nav_icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M9 6c0 .56.45 1 1 1h5.59L4.7 17.89a.996.996 0 1 0 1.41 1.41L17 8.41V14c0 .55.45 1 1 1s1-.45 1-1V6c0-.55-.45-1-1-1h-8c-.55 0-1 .45-1 1"
+                />
               </svg>
             }
           />
         </Grid>
 
-        <Grid xs={12} sm={6} md={4}>
+        <Grid
+          xs={12}
+          sm={6}
+          md={4}
+          onClick={() => navigate('/manage_balance')}
+          sx={{
+            cursor: 'pointer',
+            transition: 'height 0.5s ease', // Apply transition to the height property
+            '&:hover': {
+              padding: '0.4em', // Increased padding on hover
+            },
+          }}
+        >
           <AppWidgetSummary
             title="Budget"
             total={1352831}
             color="info"
-            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_users.png" />}
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 48 48">
+                <path
+                  fill="none"
+                  stroke="currentColor"
+                  d="M33.41 19.83a17.61 17.61 0 0 1 1.29-9.13c.18-.36.52-.78.18-1.17s-.81-.12-1.21 0a7.78 7.78 0 0 0-4.79 4c-.27.47-.46.94-1.19.84a33.57 33.57 0 0 0-7.43-.14a13.38 13.38 0 0 0-5.32 1.46A12.88 12.88 0 0 0 9.27 22a2 2 0 0 1-.12-.41c-.28-1.3-1-2-2.13-1.83H7A1.91 1.91 0 0 0 5.36 22A6.86 6.86 0 0 0 8 27.79a1.58 1.58 0 0 1 .64.92a12 12 0 0 0 3.88 6.35a2.76 2.76 0 0 1 1 2.39c-.27 2.72.81 4.1 3.77 4.5a5.88 5.88 0 0 0 .69.12c2 .41 1.78.4 2.15-1.42c.25-1.22.74-1.58 2-1.39a17.62 17.62 0 0 0 3.08.15c2.47 0 2.48 0 3.15 2.31c.12.42.21.88.8.77a15.36 15.36 0 0 0 4-.93a2.55 2.55 0 0 0 1.73-2.31c-.21-2.13.48-3 1.76-4.59c.18-.21.56-.58.77-.88a4.42 4.42 0 0 1 3.52-2.06c1.21-.06 1.75-.43 1.75-1.82v-4.2a1.66 1.66 0 0 0-1.46-1.82a4.24 4.24 0 0 1-3.09-2.54a12.23 12.23 0 0 0-4.72-5m1.63 10.86a1.79 1.79 0 0 1-1.68-1.89v0a1.76 1.76 0 0 1 1.85-1.66h0a1.79 1.79 0 1 1-.2 3.57Z"
+                />
+                <path fill="none" stroke="currentColor" d="M16.94 14.82A4.7 4.7 0 1 1 23 14" />
+              </svg>
+            }
+            nav_icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M9 6c0 .56.45 1 1 1h5.59L4.7 17.89a.996.996 0 1 0 1.41 1.41L17 8.41V14c0 .55.45 1 1 1s1-.45 1-1V6c0-.55-.45-1-1-1h-8c-.55 0-1 .45-1 1"
+                />
+              </svg>
+            }
           />
         </Grid>
 
-        <Grid xs={12} sm={6} md={4}>
+        <Grid
+          xs={12}
+          sm={6}
+          md={4}
+          onClick={() => navigate('/manage_balance')}
+          sx={{
+            cursor: 'pointer',
+            transition: 'height 0.5s ease', // Apply transition to the height property
+            '&:hover': {
+              padding: '0.4em', // Increased padding on hover
+            },
+          }}
+        >
           <AppWidgetSummary
             title="Expense"
             total={1723315}
             color="warning"
-            icon={<img alt="icon" src="/assets/icons/glass/ic_glass_buy.png" />}
+            icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 24 24">
+                <path d="M6.5 17V9h1v8zm5 0V9h1v8zm-7.962 3v-1h16.924v1zM16.5 17V9h1v8zM3.538 7v-.846L12 2.115l8.462 4.039V7zm2.643-1h11.638zm0 0h11.638L12 3.25z" />
+              </svg>
+            }
+            nav_icon={
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24">
+                <path
+                  fill="currentColor"
+                  d="M9 6c0 .56.45 1 1 1h5.59L4.7 17.89a.996.996 0 1 0 1.41 1.41L17 8.41V14c0 .55.45 1 1 1s1-.45 1-1V6c0-.55-.45-1-1-1h-8c-.55 0-1 .45-1 1"
+                />
+              </svg>
+            }
           />
         </Grid>
 

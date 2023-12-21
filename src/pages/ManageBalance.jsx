@@ -2,6 +2,7 @@
 import * as React from 'react';
 
 import Box from '@mui/material/Box';
+import Card from '@mui/material/Card';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
@@ -32,69 +33,93 @@ export default function ManageBalance() {
   return (
     <>
       <Container>
-        <h1 className="text-3xl p-4 my-5 mb-12">Manage Balance</h1>
+        <h1 className="text-3xl p-4 mb-1">Manage Balance</h1>
 
-        <Grid container spacing={10} sx={{ justifyContent: 'center' }}>
-          <Grid
-            item
-            xs={10}
-            sm={6}
-            md={5}
-            sx={{ borderRadius: 2, borderColor: 'black', px: 1, borderWidth: 1, margin: 1 }}
-          >
-            <div className="flex flex-row justify-end">
-              <div className="mr-5 text-lg border-2 rounded-lg cursor-pointer  hover:text-white">
-                <div>
-                  <Button onClick={handleOpen}>+ Add</Button>
-                  <Modal
-                    open={open}
-                    onClose={handleClose}
-                    aria-labelledby="add_balance_popup"
-                    aria-describedby="new_balance_add"
-                  >
-                    <Box sx={style}>
-                      <Typography id="add_balance_popup" variant="h6" component="h2">
-                        Add Balance
-                      </Typography>
-                      <Typography id="new_balance_add" sx={{ mt: 2 }}>
-                        Amount :
-                        <p>
-                          <Input type="number" fullWidth />
-                        </p>
-                        <p className="mt-10 flex flex-row justify-end">
-                          <button className="p-4" onClick={handleClose} type="button">
-                            Cancel
-                          </button>
-                          <button className="bg-blue-500 p-3 rounded-lg" type="button">
-                            Update
-                          </button>
-                        </p>
-                      </Typography>
-                    </Box>
-                  </Modal>
+        <Grid container spacing={1}>
+          <Grid item md={7} sm={6}>
+            <Card
+              sx={{
+                borderRadius: 2,
+                borderColor: 'rgb(229, 231, 235)',
+                px: 4,
+                py: 5,
+                borderWidth: 1,
+                margin: 1,
+              }}
+            >
+              <div className="flex flex-row justify-end">
+                <div className="mr-5 text-lg border-2 rounded-lg cursor-pointer  hover:text-white ">
+                  <div>
+                    <Button onClick={handleOpen}>+ Add</Button>
+                    <Modal
+                      open={open}
+                      onClose={handleClose}
+                      aria-labelledby="add_balance_popup"
+                      aria-describedby="new_balance_add"
+                    >
+                      <Box sx={style}>
+                        <Typography id="add_balance_popup" variant="h6" component="h2">
+                          Add Balance
+                        </Typography>
+                        <Typography id="new_balance_add" sx={{ mt: 2 }}>
+                          Amount :
+                          <p>
+                            <Input type="number" fullWidth />
+                          </p>
+                          Balance :
+                          <p>
+                            <Input type="number" fullWidth />
+                          </p>
+                          <p className="mt-10 flex flex-row justify-end">
+                            <button className="p-4" onClick={handleClose} type="button">
+                              Cancel
+                            </button>
+                            <button className="bg-blue-500 p-3 rounded-lg" type="button">
+                              Update
+                            </button>
+                          </p>
+                        </Typography>
+                      </Box>
+                    </Modal>
+                  </div>
                 </div>
               </div>
-            </div>
-            <div className="basis-1/2  m-0 mx-5 p-10 ">
-              <div className="flex flex-row my-6">
-                <p className="basis-1/3 text-2xl pt-2">Current Balance: </p>
-                <p className="basis-2/3 pl-10 text-5xl">$ 9000</p>
+              <div className="basis-1/2  m-0 mx-5  ">
+                <div className="flex flex-row my-4">
+                  <p className="basis-1/3 text-lg pt-4">
+                    <Typography variant="subtitle2" sx={{ color: 'text.disabled' }}>
+                      Current Balance:{' '}
+                    </Typography>
+                  </p>
+                  <p className="basis-2/3 pl-1 text-5xl">$ 9000</p>
+                </div>
               </div>
-            </div>
+            </Card>
           </Grid>
-          <Grid
-            item
-            xs={10}
-            sm={6}
-            md={5}
-            sx={{ borderRadius: 2, borderColor: 'black', px: 1, borderWidth: 1, margin: 1 }}
-          >
-            <div>
-              <p className="text-2xl p-5">Monthly Income:</p>
-              <div className="flex justify-center items-center ">
-                <p className=" text-3xl border-2 rounded-lg p-5">$5000</p>
+          <Grid item md={4} sm={6} sx={{ justifySelf: 'stretch' }}>
+            <Card
+              sx={{
+                borderRadius: 2,
+                // borderColor: 'rgb(229, 231, 235)',
+                px: 2,
+                py: 5,
+                borderWidth: 1,
+                margin: 1,
+                // height: '70%',
+              }}
+            >
+              <p className="text-lg p-2">
+                <Typography variant="subtitle2" sx={{ color: 'text.disabled' }}>
+                  Monthly Income:
+                </Typography>
+              </p>
+
+              <div>
+                <div className="flex justify-center items-center ">
+                  <p className=" text-3xl  rounded-lg p-5">$5000</p>
+                </div>
               </div>
-            </div>
+            </Card>
           </Grid>
         </Grid>
       </Container>

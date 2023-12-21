@@ -22,6 +22,7 @@ export function LoginPage() {
       password: data.password,
       email: data.email,
     };
+
     if (data.password && data.email) {
       // console.log(JSON.stringify(formData));
       fetch('https://financetrack-app.onrender.com/api/v1/signin', {
@@ -123,7 +124,7 @@ export function LoginPage() {
               />
             </label>
           </div>
-          <p className="text-3xl font-bold underline">{errors.password?.message}</p>
+          <p className="text-lg underline">{errors.password?.message}</p>
 
           <button
             type="submit"
