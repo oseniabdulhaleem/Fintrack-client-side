@@ -1,5 +1,6 @@
 // import BalanceTransactions from './BalanceTransactions';
 import * as React from 'react';
+import { Icon } from '@iconify/react';
 
 import Box from '@mui/material/Box';
 import Card from '@mui/material/Card';
@@ -36,7 +37,7 @@ export default function ManageBalance() {
         <h1 className="text-3xl p-4 mb-1">Manage Balance</h1>
 
         <Grid container spacing={1}>
-          <Grid item md={7} sm={6}>
+          <Grid item md={7} sm={6} xs={12}>
             <Card
               sx={{
                 borderRadius: 2,
@@ -91,12 +92,15 @@ export default function ManageBalance() {
                       Current Balance:{' '}
                     </Typography>
                   </p>
-                  <p className="basis-2/3 pl-1 text-5xl">$ 9000</p>
+                  <p className="basis-2/3 pl-1 text-5xl">
+                    <Icon icon="tabler:currency-naira" className="inline" />
+                    9000
+                  </p>
                 </div>
               </div>
             </Card>
           </Grid>
-          <Grid item md={4} sm={6} sx={{ justifySelf: 'stretch' }}>
+          <Grid item md={4} sm={6} xs={12} sx={{ justifySelf: 'stretch' }}>
             <Card
               sx={{
                 borderRadius: 2,
@@ -116,12 +120,17 @@ export default function ManageBalance() {
 
               <div>
                 <div className="flex justify-center items-center ">
-                  <p className=" text-3xl  rounded-lg p-5">$5000</p>
+                  <p className=" text-3xl  rounded-lg p-5">
+                    <Icon icon="tabler:currency-naira" className="inline" />
+                    5000
+                  </p>
                 </div>
               </div>
             </Card>
           </Grid>
         </Grid>
+
+        <h1 className="text-3xl p-4 mt-2 mb-1">Recent Transactions</h1>
       </Container>
 
       {/* <Grid container spacing={5}>
