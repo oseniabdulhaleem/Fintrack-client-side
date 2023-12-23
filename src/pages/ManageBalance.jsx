@@ -8,6 +8,7 @@ import Card from '@mui/material/Card';
 import Modal from '@mui/material/Modal';
 import Button from '@mui/material/Button';
 import Container from '@mui/material/Container';
+import TextField from '@mui/material/TextField';
 import Grid from '@mui/material/Unstable_Grid2';
 import Typography from '@mui/material/Typography';
 
@@ -15,14 +16,13 @@ import Transactions from 'src/sections/manage_balance/transactions';
 
 // import AppWidgetSummary from '../sections/overview/app-widget-summary';
 // import Card from '@mui/material/Card';
-import Input from '@mui/material/Input';
 
 const style = {
   position: 'absolute',
   top: '50%',
   left: '50%',
   transform: 'translate(-50%, -50%)',
-  width: 400,
+  width: 350,
   bgcolor: 'white',
   border: '2px solid #000',
   boxShadow: 3,
@@ -60,28 +60,59 @@ export default function ManageBalance() {
                     aria-labelledby="add_balance_popup"
                     aria-describedby="new_balance_add"
                   >
-                    <Box sx={style}>
-                      <Typography id="add_balance_popup" variant="h6" component="h2">
-                        Add Balance
-                      </Typography>
-                      <Typography id="new_balance_add" sx={{ mt: 2 }}>
-                        Amount :
-                        <p>
-                          <Input type="number" fullWidth />
-                        </p>
-                        Balance :
-                        <p>
-                          <Input type="number" fullWidth />
-                        </p>
-                        <p className="mt-10 flex flex-row justify-end">
-                          <button className="p-4" onClick={handleClose} type="button">
+                    <Box>
+                      <Grid container spacing={5} sx={style}>
+                        <Typography variant="h6" sx={{ marginBottom: '12px' }}>
+                          Add Balance
+                        </Typography>
+                        <Grid xs={12}>
+                          <TextField
+                            id="outlined-number"
+                            label="New Balance"
+                            type="number"
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                          />
+                        </Grid>
+                        <Grid xs={12}>
+                          <TextField
+                            id="outlined-number"
+                            label="Income"
+                            type="number"
+                            InputLabelProps={{
+                              shrink: true,
+                            }}
+                          />
+                        </Grid>
+                        <Grid xs={12} container sx={{ justifyContent: 'flex-end', gap: '5px' }}>
+                          <Button
+                            onClick={handleClose}
+                            color="secondary"
+                            variant="filled"
+                            sx={{
+                              borderWidth: '1px ',
+                              borderRadius: '10%',
+                              padding: '5%',
+                              justifySelf: 'end',
+                            }}
+                          >
                             Cancel
-                          </button>
-                          <button className="bg-blue-500 p-3 rounded-lg" type="button">
+                          </Button>
+
+                          {/* <button type="button">Update</button> */}
+                          <Button
+                            sx={{
+                              borderWidth: '1px ',
+                              borderRadius: '10%',
+                              padding: 0,
+                              justifySelf: 'end',
+                            }}
+                          >
                             Update
-                          </button>
-                        </p>
-                      </Typography>
+                          </Button>
+                        </Grid>
+                      </Grid>
                     </Box>
                   </Modal>
                 </div>
@@ -94,7 +125,7 @@ export default function ManageBalance() {
                     Current Balance:{' '}
                   </Typography>
                 </p>
-                <p className="basis-2/3 pl-1 text-5xl">
+                <p className="basis-2/3 pl-1 text-4xl">
                   <Icon icon="tabler:currency-naira" className="inline" />
                   9000
                 </p>
