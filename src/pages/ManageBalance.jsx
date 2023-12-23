@@ -25,8 +25,9 @@ const style = {
   width: 400,
   bgcolor: 'white',
   border: '2px solid #000',
-  boxShadow: 24,
+  boxShadow: 3,
   p: 4,
+  borderRadius: '3%',
 };
 
 export default function ManageBalance() {
@@ -130,7 +131,7 @@ export default function ManageBalance() {
           </Card>
         </Grid>
       </Grid>
-      <h1 className="text-3xl p-4 mt-2 mb-1">Recent Transactions</h1>
+      <h1 className="text-2xl p-4 mt-2 mb-1">Recent Transactions</h1>
       <Theme accentColor="gold" grayColor="gray">
         <Transactions />
         {/* <ThemePanel /> */}
