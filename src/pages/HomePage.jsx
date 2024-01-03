@@ -67,7 +67,7 @@ export default function HomePage() {
       <div className="text-6xl mt-10 leading-10 border-2">
         {/* text-6xl was helpful in the animation do not touch */}
         <Grid container spacing={3}>
-          <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: '50px', paddingTop: '1em' }}>
+          <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: '0.5em', paddingTop: '1em' }}>
             <AnimateOnScroll>
               <p className=" introText text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight lg:font-bold ">
                 Effortless Expense Tracking for Financial Success
@@ -105,7 +105,7 @@ export default function HomePage() {
       </div>
 
       <Container maxWidth="xl">
-        <div className="flex flex-col items-center justify-center h-1/4">
+        <div className="flex flex-col items-center justify-center">
           <p className="text-center px-10 text-5xl mt-10">
             The best platform to manage all financial transactions.
           </p>
@@ -114,67 +114,74 @@ export default function HomePage() {
           </p>
         </div>
         <VerticalOnScroll>
-          <div className="flex flex-row justify-center items-center gap-4 px-10 h-full">
-            {/* handling the track your balance part */}
-
-            <div className="flex flex-row gap-5 p-4 py-20 border-2 rounded-2xl">
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                >
-                  <path d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
-                </svg>
-              </div>
-              <div>
-                <h6 className="text-2xl">Manage Expense</h6>
-                <p className="text-lg p-2">
-                  Simplify your expense management with our user-friendly tools. Track, categorize,
-                  and stay in control of your spending effortlessly.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row gap-5 p-4 py-20 border-2 rounded-2xl">
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                >
-                  <path d="M200-200v-560 560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v100h-80v-100H200v560h560v-100h80v100q0 33-23.5 56.5T760-120H200Zm320-160q-33 0-56.5-23.5T440-360v-240q0-33 23.5-56.5T520-680h280q33 0 56.5 23.5T880-600v240q0 33-23.5 56.5T800-280H520Zm280-80v-240H520v240h280Zm-160-60q25 0 42.5-17.5T700-480q0-25-17.5-42.5T640-540q-25 0-42.5 17.5T580-480q0 25 17.5 42.5T640-420Z" />
-                </svg>
-              </div>
-              <div>
-                <h6 className="text-2xl">Track Balance</h6>
-                <p className="text-lg p-2">
-                  Effortlessly manage your financial balance and gain better control over your
-                  spending with our intuitive tracking tools.
-                </p>
-              </div>
-            </div>
-            <div className="flex flex-row gap-5 p-4 py-20 border-2 rounded-2xl ">
-              <div>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  height="24"
-                  viewBox="0 -960 960 960"
-                  width="24"
-                >
-                  <path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z" />
-                </svg>
-              </div>
-              <div>
-                <h6 className="text-2xl">Make Budget</h6>
-                <p className="text-lg p-2">
-                  Create and maintain budgets with ease. Our platform simplifies the budgeting
-                  process, helping you stay on top of your financial goals.
-                </p>
-              </div>
-            </div>
-          </div>
+          <Container sx={{ marginTop: '2em' }}>
+            <Grid container spacing={2}>
+              {/* handling the track your balance part */}
+              <Grid xs={12} sm={6} md={4} sx={{ padding: '20px' }}>
+                <div className="flex flex-row gap-5 p-4 py-20 border-2 rounded-2xl">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                    >
+                      <path d="M120-120v-80l80-80v160h-80Zm160 0v-240l80-80v320h-80Zm160 0v-320l80 81v239h-80Zm160 0v-239l80-80v319h-80Zm160 0v-400l80-80v480h-80ZM120-327v-113l280-280 160 160 280-280v113L560-447 400-607 120-327Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h6 className="text-2xl">Manage Expense</h6>
+                    <p className="text-lg p-2">
+                      Simplify your expense management with our user-friendly tools. Track,
+                      categorize, and stay in control of your spending effortlessly.
+                    </p>
+                  </div>
+                </div>
+              </Grid>
+              <Grid xs={12} sm={6} md={4} sx={{ padding: '20px' }}>
+                <div className="flex flex-row gap-5 p-4 py-20 border-2 rounded-2xl">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                    >
+                      <path d="M200-200v-560 560Zm0 80q-33 0-56.5-23.5T120-200v-560q0-33 23.5-56.5T200-840h560q33 0 56.5 23.5T840-760v100h-80v-100H200v560h560v-100h80v100q0 33-23.5 56.5T760-120H200Zm320-160q-33 0-56.5-23.5T440-360v-240q0-33 23.5-56.5T520-680h280q33 0 56.5 23.5T880-600v240q0 33-23.5 56.5T800-280H520Zm280-80v-240H520v240h280Zm-160-60q25 0 42.5-17.5T700-480q0-25-17.5-42.5T640-540q-25 0-42.5 17.5T580-480q0 25 17.5 42.5T640-420Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h6 className="text-2xl">Track Balance</h6>
+                    <p className="text-lg p-2">
+                      Effortlessly manage your financial balance and gain better control over your
+                      spending with our intuitive tracking tools.
+                    </p>
+                  </div>
+                </div>
+              </Grid>
+              <Grid xs={12} sm={6} md={4} sx={{ padding: '20px' }}>
+                <div className="flex flex-row gap-5 p-4 py-20 border-2 rounded-2xl ">
+                  <div>
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      height="24"
+                      viewBox="0 -960 960 960"
+                      width="24"
+                    >
+                      <path d="M200-280v-280h80v280h-80Zm240 0v-280h80v280h-80ZM80-120v-80h800v80H80Zm600-160v-280h80v280h-80ZM80-640v-80l400-200 400 200v80H80Zm178-80h444-444Zm0 0h444L480-830 258-720Z" />
+                    </svg>
+                  </div>
+                  <div>
+                    <h6 className="text-2xl">Make Budget</h6>
+                    <p className="text-lg p-2">
+                      Create and maintain budgets with ease. Our platform simplifies the budgeting
+                      process, helping you stay on top of your financial goals.
+                    </p>
+                  </div>
+                </div>
+              </Grid>
+            </Grid>
+          </Container>
         </VerticalOnScroll>
       </Container>
       {/* last bottom part of page  */}
