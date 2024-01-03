@@ -4,6 +4,9 @@ import { useNavigate } from 'react-router-dom';
 import * as Accordion from '@radix-ui/react-accordion';
 import { ChevronDownIcon } from '@radix-ui/react-icons';
 
+import Container from '@mui/material/Container';
+import Grid from '@mui/material/Unstable_Grid2';
+
 import dashbod from '../../public/assets/dashbod.jpg';
 import { AnimateOnScroll, VerticalOnScroll } from './AnimateOnScroll';
 
@@ -61,10 +64,10 @@ export default function HomePage() {
           </div>
         </div>
       </div>
-      <div className="text-6xl mt-7 leading-10 border-2 flex flex-col justify-center items-center flex-wrap">
+      <div className="text-6xl mt-10 leading-10 border-2">
         {/* text-6xl was helpful in the animation do not touch */}
-        <div className=" flex flex-row gap-2 justify-center items-center p-5">
-          <div className="my-20 basis-1/2 p-5">
+        <Grid container spacing={3}>
+          <Grid xs={12} sm={6} md={6} sx={{ paddingLeft: '50px', paddingTop: '1em' }}>
             <AnimateOnScroll>
               <p className=" introText text-slate-900 font-extrabold text-4xl sm:text-5xl lg:text-6xl tracking-tight lg:font-bold ">
                 Effortless Expense Tracking for Financial Success
@@ -93,15 +96,15 @@ export default function HomePage() {
                 </div>
               </button>
             </div>
-          </div>
+          </Grid>
           {/* This will hold the image */}
-          <div className="basis-1/2 rounded-2xl">
+          <Grid xs={12} sm={6} md={6} sx={{ padding: '20px' }}>
             <img src={dashbod} className="rounded-lg" alt="dashboard" />
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       </div>
 
-      <div className="h-screen border-b-2">
+      <Container maxWidth="xl">
         <div className="flex flex-col items-center justify-center h-1/4">
           <p className="text-center px-10 text-5xl mt-10">
             The best platform to manage all financial transactions.
@@ -173,7 +176,8 @@ export default function HomePage() {
             </div>
           </div>
         </VerticalOnScroll>
-      </div>
+      </Container>
+      {/* last bottom part of page  */}
       <div className="h-screen pt-20">
         <div className="flex flex-col justify-center items-center p-7 mb-7">
           <p className="mb-5 text-4xl">FAQS</p>
